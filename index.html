@@ -76,6 +76,12 @@ p{font-size:14px;color:#7a8494;line-height:1.7;margin-bottom:14px}
 footer{text-align:center;margin-top:40px;font-size:11px;color:#333d4a}
 footer a{color:#60a5fa;text-decoration:none}
 .helper-note{font-size:11px;text-align:center;color:#3e4755;margin-top:10px}
+/* WARRIOR */
+.warrior-card{position:relative;border-radius:20px;overflow:hidden;margin-bottom:18px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);box-shadow:0 8px 40px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.06);animation:warriorFloat 4s ease-in-out infinite}
+.warrior-card iframe{display:block;width:100%;height:360px;border:none}
+.warrior-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:60px;background:linear-gradient(to top,rgba(4,7,15,0.9),transparent);pointer-events:none}
+.warrior-label{position:absolute;bottom:14px;left:50%;transform:translateX(-50%);background:rgba(4,7,15,.75);border:1px solid rgba(96,165,250,.2);backdrop-filter:blur(12px);color:#60a5fa;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:5px 16px;border-radius:20px;white-space:nowrap;z-index:2}
+@keyframes warriorFloat{0%,100%{transform:translateY(0);box-shadow:0 8px 40px rgba(0,0,0,.5),0 0 0 rgba(96,165,250,0)}50%{transform:translateY(-6px);box-shadow:0 18px 50px rgba(0,0,0,.6),0 0 30px rgba(96,165,250,.08)}}
 </style>
 </head>
 <body>
@@ -104,24 +110,18 @@ footer a{color:#60a5fa;text-decoration:none}
     <div class="chip"><svg width="12" height="12" style="color:#60a5fa"><use href="#ic-lock"/></svg>Private</div>
     <div class="chip"><svg width="12" height="12" style="color:#60a5fa"><use href="#ic-bolt"/></svg>PHQ-9 Based</div>
   </div>
-  <div class="card">
-    <div class="tree-wrap glow-g" id="tw0">
-      <svg id="tsw" viewBox="0 0 300 380" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <ellipse cx="150" cy="370" rx="64" ry="11" fill="rgba(0,0,0,.32)"/>
-        <polygon points="128,372 172,372 160,252 140,252" fill="#3d2610"/>
-        <path d="M146,258 C132,238 108,218 75,196" fill="none" stroke="#3d2610" stroke-width="13" stroke-linecap="round"/>
-        <path d="M154,258 C168,238 192,218 225,196" fill="none" stroke="#3d2610" stroke-width="13" stroke-linecap="round"/>
-        <path d="M150,252 C149,232 148,198 150,163" fill="none" stroke="#3d2610" stroke-width="9" stroke-linecap="round"/>
-        <path d="M100,218 C82,200 64,174 52,150" fill="none" stroke="#3d2610" stroke-width="7" stroke-linecap="round"/>
-        <path d="M94,210 C108,186 110,164 99,138" fill="none" stroke="#3d2610" stroke-width="5" stroke-linecap="round"/>
-        <path d="M200,218 C218,200 236,174 248,150" fill="none" stroke="#3d2610" stroke-width="7" stroke-linecap="round"/>
-        <path d="M206,210 C192,186 190,164 201,138" fill="none" stroke="#3d2610" stroke-width="5" stroke-linecap="round"/>
-        <path d="M150,163 C136,142 126,120 106,100" fill="none" stroke="#3d2610" stroke-width="4" stroke-linecap="round"/>
-        <path d="M150,163 C164,142 174,120 194,100" fill="none" stroke="#3d2610" stroke-width="4" stroke-linecap="round"/>
-        <path d="M150,163 C149,143 148,122 148,90" fill="none" stroke="#3d2610" stroke-width="3" stroke-linecap="round"/>
-      </svg>
-    </div>
-    <p style="text-align:center;font-size:12px;color:#4a5568;margin:0">The tree reflects your mental state as you answer. <span style="color:#60a5fa">Be honest.</span></p>
+  <div class="warrior-card">
+    <iframe
+      title="Arab Warrior Cloth T-pose"
+      src="https://sketchfab.com/models/7ff43056207c4f54942889307eaac5c9/embed?autostart=1&autospin=0.18&ui_controls=0&ui_infos=0&ui_watermark_link=0&ui_watermark=0&transparent=1&camera=0&preload=1&dnt=1"
+      frameborder="0"
+      allowfullscreen
+      mozallowfullscreen="true"
+      webkitallowfullscreen="true"
+      allow="autoplay; fullscreen; xr-spatial-tracking"
+      loading="lazy">
+    </iframe>
+    <div class="warrior-label">Your Inner Warrior</div>
   </div>
   <button class="btn-cta" onclick="go(1)">
     Start Assessment
@@ -357,8 +357,7 @@ function addRipple(e,el){
   el.appendChild(rp);setTimeout(()=>rp.remove(),600);
 }
 
-// Init welcome tree leaves
-window.addEventListener('DOMContentLoaded',()=>mkLeaves('tsw'));
+// Welcome warrior loaded via iframe — no init needed
 
 // Expose start button
 document.querySelector('#s0 .btn-cta').onclick=()=>startAssessment();
